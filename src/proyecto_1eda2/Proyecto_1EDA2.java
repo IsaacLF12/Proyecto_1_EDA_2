@@ -16,6 +16,7 @@ public class Proyecto_1EDA2 {
     public static void main(String[] args) {
         // Toda la lógica aquí papu
         System.out.println("Hola Mundo");
+        System.out.println("Suma normal: "+ (5+6));
     }
     
 }
