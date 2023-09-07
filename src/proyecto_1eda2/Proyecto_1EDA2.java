@@ -14,7 +14,8 @@ public class Proyecto_1EDA2 {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        // Toda la lógica aquí papu
+        System.out.println("Hola Mundo");
     }
     
 }
