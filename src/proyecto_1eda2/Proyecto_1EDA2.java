@@ -17,6 +17,7 @@ public class Proyecto_1EDA2 {
         // Toda la lógica aquí papu
         System.out.println("Hola Mundo");
         System.out.println("Suma normal: "+ (5+6));
+        System.out.println("Booleanos True && False: " + (true && false));
     }
     
 }
