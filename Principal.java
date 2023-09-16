@@ -16,35 +16,87 @@ public class Principal{
                 case 1:
                     Utilerias.menu2();
                     op2 = In.nextInt();
-                    Utilerias.menu3();
+                    int[] array;
                     switch(op2){
                         case 1:
-                            op2 = In.nextInt();
-                            Random aleatorio = new Random();
+                            array = Utilerias.crearArray();
+                            System.out.println("Este es el arreglo a ordenar: ");
+                            Utilerias.printArray(array);
+                            Ordenamientos.insertionSort(array);
+                            System.out.println("Este es el arreglo ya ordenado por insertionSort en " + Ordenamientos.insertionSort(array) + " operaciones:");
+                            Utilerias.printArray(array);
                             break;
                         case 2:
-
+                            array = Utilerias.crearArray();
+                            System.out.println("Este es el arreglo a ordenar: ");
+                            Utilerias.printArray(array);
+                            Ordenamientos.insertionSort(array);
+                            System.out.println("Este es el arreglo ya ordenado por selectionSort en " + Ordenamientos.selectionSort(array) + " operaciones:");
+                            Utilerias.printArray(array);
                             break;
                         case 3:
-
+                            array = Utilerias.crearArray();
+                            System.out.println("Este es el arreglo a ordenar: ");
+                            Utilerias.printArray(array);
+                            Ordenamientos.insertionSort(array);
+                            System.out.println("Este es el arreglo ya ordenado por bubbleSort en " + Ordenamientos.bubbleSort(array) + " operaciones:");
+                            Utilerias.printArray(array);
                             break;
                         case 4:
-
+                            array = Utilerias.crearArray();
+                            System.out.println("Este es el arreglo a ordenar: ");
+                            Utilerias.printArray(array);
+                            Ordenamientos.insertionSort(array);
+                            System.out.println("Este es el arreglo ya ordenado por heapSort en " + Ordenamientos.heapSort(array) + " operaciones:");
+                            Utilerias.printArray(array);
                             break;
                         case 5:
-
+                            array = Utilerias.crearArray();
+                            System.out.println("Este es el arreglo a ordenar: ");
+                            Utilerias.printArray(array);
+                            Ordenamientos.insertionSort(array);
+                            System.out.println("Este es el arreglo ya ordenado por quickSort (pivot method of three) en " + Ordenamientos.QuickSort(array, 0, array.length-1) + " operaciones:");
+                            Utilerias.printArray(array);
                             break;
                         case 6:
-
+                            array = Utilerias.crearArray();
+                            System.out.println("Este es el arreglo a ordenar: ");
+                            Utilerias.printArray(array);
+                            Ordenamientos.insertionSort(array);
+                            System.out.println("Este es el arreglo ya ordenado por quickSort (pivote aleatorio) en " + Ordenamientos.QuickSort2(array) + " operaciones:");
+                            Utilerias.printArray(array);
                             break;
                         case 7:
-
+                            array = Utilerias.crearArray();
+                            System.out.println("Este es el arreglo a ordenar: ");
+                            Utilerias.printArray(array);
+                            Ordenamientos.insertionSort(array);
+                            System.out.println("Este es el arreglo ya ordenado por mergeSort en " + Ordenamientos.sort(array, 0, array.length) + " operaciones:");
+                            Utilerias.printArray(array);
+                            break;
+                        case 8:
+                            array = Utilerias.crearArray();
+                            System.out.println("Este es el arreglo a ordenar: ");
+                            Utilerias.printArray(array);
+                            Ordenamientos.insertionSort(array);
+                            System.out.println("Este es el arreglo ya ordenado por countingSort en " + Ordenamientos.countingSort(array) + " operaciones:");
+                            Utilerias.printArray(array);
                             break;
                         case 9:
-
+                            array = Utilerias.crearArray();
+                            System.out.println("Este es el arreglo a ordenar: ");
+                            Utilerias.printArray(array);
+                            Ordenamientos.insertionSort(array);
+                            System.out.println("Este es el arreglo ya ordenado por radixSort en " + Ordenamientos.radixSort(array) + " operaciones:");
+                            Utilerias.printArray(array);
                             break;
                         case 10:
-
+                            array = Utilerias.crearArray();
+                            System.out.println("Este es el arreglo a ordenar: ");
+                            Utilerias.printArray(array);
+                            Ordenamientos.insertionSort(array);
+                            System.out.println("Este es el arreglo ya ordenado por shellSort en " + Ordenamientos.shellSort(array) + " operaciones:");
+                            Utilerias.printArray(array);
                             break;
                         default:
                             System.out.println("Opcion incorrecta");
@@ -53,15 +105,15 @@ public class Principal{
                     Utilerias.pause();
                     break;
                 case 2:
-                    Utilerias.menu3();
-                  //  Utilerias.crearArray();
-                    op2 = In.nextInt();
-                    Random aleatorio = new Random();
-                    String[] nombresAlgoritmos = {"insertionSort", "selectionSort", "bubbleSort", "heapSort", "quickSort (p.m.o.t)", "quickSort (p.r.)",
-                                                    "mergeSort", "countingSort", "radixSort", "shellSort"};
-                    int[] array = new int[op2];
+                 //   Utilerias.menu3();
+
+                //    op2 = In.nextInt();
+                //    Random aleatorio = new Random();
+                    String[] nombresAlgoritmos = {"insertionSort        ", "selectionSort      ", "bubbleSort         ", "heapSort           ", "quickSort (p.m.o.t)", "quickSort (p.r.)   ",
+                                                    "mergeSort          ", "countingSort       ", "radixSort          ", "shellSort          "};
+                    array = Utilerias.crearArray();
                     int[] resultados = new int[10];
-                    System.out.println("Elige el caso que desees probar:\n\t1. Mejor Caso (Arreglo ordenado)");
+                /*    System.out.println("Elige el caso que desees probar:\n\t1. Mejor Caso (Arreglo ordenado)");
                     System.out.println("\t2. Caso Promedio (Arreglo aleatorio valores entre 0 y 1000)\n\t3. Peor Caso (Arreglo ordenado al reves)");
                     op2 = In.nextInt();
                     switch(op2){
@@ -77,7 +129,7 @@ public class Principal{
                             for(int i=0; i<array.length; i++)
                                 array[i] = array.length-i;
                             break;
-                    }
+                    }*/
                     int[] arrayTest = Arrays.copyOf(array, array.length);
                     resultados[0] = Ordenamientos.insertionSort(arrayTest);
                     arrayTest = Arrays.copyOf(array, array.length);
@@ -106,7 +158,7 @@ public class Principal{
                         k++; // Valor inicial en 0
                     }
                     System.out.println("Estos son los resultados:");
-                    System.out.println("\tAlgoritmo\t\t\t\t\tNumero de Operaciones\n");
+                    System.out.println("\tAlgoritmo\t\t\t\t\t\tNumero de Operaciones\n");
                     for (Map.Entry<Integer, String> entry : mapaAlgoritmos.entrySet()) {
                         System.out.print("\t" + entry.getValue() + "\t\t\t\t\t\t");
                         System.out.format("%,8d%n", entry.getKey());

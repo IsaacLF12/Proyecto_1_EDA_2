@@ -1,3 +1,5 @@
+import java.util.Random;
+import java.util.Scanner;
 
 public class Utilerias{
     public static void printArray(int[] arr){
@@ -43,8 +45,30 @@ public class Utilerias{
         for(int i=0; i<nombresAlgoritmos.length; i++)
             System.out.println("\t"+(i+1)+". "+nombresAlgoritmos[i]);
     }
-    public static void menu3(){
+    public static int[] crearArray(){
+        Scanner In = new Scanner(System.in);
+        Random aleatorio = new Random();
         clearScreen();
         System.out.print("Elige el tamanio del arreglo (numero de valores a ordenar): ");
+        int op2 = In.nextInt();
+        int[] array = new int[op2];
+        System.out.println("Elige el caso que desees probar:\n\t1. Mejor Caso (Arreglo ordenado)");
+        System.out.println("\t2. Caso Promedio (Arreglo aleatorio valores entre 0 y 1000)\n\t3. Peor Caso (Arreglo ordenado al reves)");
+        op2 = In.nextInt();
+        switch(op2){
+            case 1: 
+                for(int i=0; i<array.length; i++)
+                    array[i] = i;
+                break;
+            case 2:
+                for(int i=0; i<array.length; i++)
+                    array[i] = aleatorio.nextInt(1001);
+                break;  
+            case 3:
+                for(int i=0; i<array.length; i++)
+                    array[i] = array.length-i;
+                break;
+        }
+        return array;
     }
 }
