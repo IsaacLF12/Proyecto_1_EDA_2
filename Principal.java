@@ -1,6 +1,9 @@
 import java.util.Random;
 import java.util.Scanner;
+import java.util.TreeMap;
 import java.util.Arrays;
+import java.util.LinkedHashMap;
+import java.util.Map;
 
 public class Principal{
     public static void main(String[] args){
@@ -12,9 +15,46 @@ public class Principal{
             switch(op){
                 case 1:
                     Utilerias.menu2();
+                    op2 = In.nextInt();
+                    Utilerias.menu3();
+                    switch(op2){
+                        case 1:
+                            op2 = In.nextInt();
+                            Random aleatorio = new Random();
+                            break;
+                        case 2:
+
+                            break;
+                        case 3:
+
+                            break;
+                        case 4:
+
+                            break;
+                        case 5:
+
+                            break;
+                        case 6:
+
+                            break;
+                        case 7:
+
+                            break;
+                        case 9:
+
+                            break;
+                        case 10:
+
+                            break;
+                        default:
+                            System.out.println("Opcion incorrecta");
+                            break;
+                    }
+                    Utilerias.pause();
                     break;
                 case 2:
                     Utilerias.menu3();
+                  //  Utilerias.crearArray();
                     op2 = In.nextInt();
                     Random aleatorio = new Random();
                     String[] nombresAlgoritmos = {"insertionSort", "selectionSort", "bubbleSort", "heapSort", "quickSort (p.m.o.t)", "quickSort (p.r.)",
@@ -59,14 +99,25 @@ public class Principal{
                     arrayTest = Arrays.copyOf(array, array.length);
                     resultados[9] = Ordenamientos.shellSort(arrayTest);
 
-                
-
+                    int k=0;
+                    Map<Integer, String> mapaAlgoritmos = new TreeMap<>();
+                    for (String nombreAlgoritmo : nombresAlgoritmos){
+                        mapaAlgoritmos.put(resultados[k], nombreAlgoritmo);
+                        k++; // Valor inicial en 0
+                    }
                     System.out.println("Estos son los resultados:");
+                    System.out.println("\tAlgoritmo\t\t\t\t\tNumero de Operaciones\n");
+                    for (Map.Entry<Integer, String> entry : mapaAlgoritmos.entrySet()) {
+                        System.out.print("\t" + entry.getValue() + "\t\t\t\t\t\t");
+                        System.out.format("%,8d%n", entry.getKey());
+                    }
+               /*     System.out.println("Estos son los resultados:");
                     System.out.println("\tAlgoritmo\t\t\t\t\tNumero de Operaciones\n");
                     for(int i=0; i<resultados.length; i++){
                         System.out.print("\t" + nombresAlgoritmos[i] + "\t\t\t\t\t\t");
                         System.out.format("%,8d%n", resultados[i]);
-                    }
+              //         System.out.printf("%-15s%50s%n", nombresAlgoritmos[i], resultados[i]);
+                    }*/
                     //System.out.format("%15s%80\n", nombresAlgoritmos[i], resultados[i]);
 //                    Utilerias.printArray(array);
 //                    Utilerias.printArray(arrayTest);

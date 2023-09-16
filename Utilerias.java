@@ -36,8 +36,12 @@ public class Utilerias{
         System.out.println("Elige la opcion que desees:\n\t1. Probar un algoritmo de forma individual\n\t2. Comparar todos los algoritmos");
     }
     public static void menu2(){
+        String[] nombresAlgoritmos = {"insertionSort", "selectionSort", "bubbleSort", "heapSort", "quickSort (p.m.o.t)", "quickSort (p.r.)",
+                                                    "mergeSort", "countingSort", "radixSort", "shellSort"};
         clearScreen();
-        System.out.println("Elige el algoritmo a probar\n\t");
+        System.out.println("Elige el algoritmo a probar");
+        for(int i=0; i<nombresAlgoritmos.length; i++)
+            System.out.println("\t"+(i+1)+". "+nombresAlgoritmos[i]);
     }
     public static void menu3(){
         clearScreen();
