@@ -127,6 +127,60 @@ public class Ordenamientos{
         pi_operations[0]++;
         pi_operations[1] = pi_operations[1]+7;
     }
-    
-
+    public static int sort(int arr[], int l, int r){ 
+        int operations = 0;
+        if (l < r){ 
+            int m = (l+r)/2; 
+            operations+=sort(arr, l, m); 
+            operations+=sort(arr , m+1, r); 
+            operations+=merge(arr, l, m, r);
+            operations+=1; 
+        } 
+        operations+=1;
+        return operations;
+    }
+    public static int merge(int arr[], int l, int m, int r){ 
+        int operations = 0;
+        int n1 = m - l + 1; 
+        int n2 = r - m; 
+        int L[] = new int [n1]; 
+        int R[] = new int [n2]; 
+        for (int i=0; i<n1; ++i){
+            L[i] = arr[l + i]; 
+            operations+=1;
+        }
+        for (int j=0; j<n2; ++j){
+            R[j] = arr[m + 1+ j];
+            operations+=1;
+        } 
+        int i = 0, j = 0; 
+        int k = l; 
+        while (i < n1 && j < n2){ 
+            if (L[i] <= R[j]){ 
+                arr[k] = L[i]; 
+                i++; 
+                operations+=2;
+            }else{ 
+                arr[k] = R[j]; 
+                j++; 
+                operations+=2;
+            } 
+            k++; 
+            operations+=2;
+        } 
+        while (i < n1){ 
+            arr[k] = L[i]; 
+            i++; 
+            k++; 
+            operations+=3;
+        } 
+        while (j < n2){ 
+            arr[k] = R[j]; 
+            j++; 
+            k++; 
+            operations+=3;
+        } 
+        operations+=11;
+        return operations;
+    }   
 }
