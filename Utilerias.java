@@ -79,7 +79,6 @@ public class Utilerias{
                 array = crearArray();
                 System.out.println("Este es el arreglo a ordenar: ");
                 printArray(array);
-                Ordenamientos.insertionSort(array);
                 System.out.println("Este es el arreglo ya ordenado por insertionSort en " + Ordenamientos.insertionSort(array) + " operaciones:");
                 printArray(array);
                 break;
@@ -87,7 +86,6 @@ public class Utilerias{
                 array = crearArray();
                 System.out.println("Este es el arreglo a ordenar: ");
                 printArray(array);
-                Ordenamientos.insertionSort(array);
                 System.out.println("Este es el arreglo ya ordenado por selectionSort en " + Ordenamientos.selectionSort(array) + " operaciones:");
                 printArray(array);
                 break;
@@ -95,7 +93,6 @@ public class Utilerias{
                 array = crearArray();
                 System.out.println("Este es el arreglo a ordenar: ");
                 printArray(array);
-                Ordenamientos.insertionSort(array);
                 System.out.println("Este es el arreglo ya ordenado por bubbleSort en " + Ordenamientos.bubbleSort(array) + " operaciones:");
                 printArray(array);
                 break;
@@ -103,7 +100,6 @@ public class Utilerias{
                 array = crearArray();
                 System.out.println("Este es el arreglo a ordenar: ");
                 printArray(array);
-                Ordenamientos.insertionSort(array);
                 System.out.println("Este es el arreglo ya ordenado por heapSort en " + Ordenamientos.heapSort(array) + " operaciones:");
                 printArray(array);
                 break;
@@ -111,7 +107,6 @@ public class Utilerias{
                 array = crearArray();
                 System.out.println("Este es el arreglo a ordenar: ");
                 printArray(array);
-                Ordenamientos.insertionSort(array);
                 System.out.println("Este es el arreglo ya ordenado por quickSort (pivot method of three) en " + Ordenamientos.QuickSort(array, 0, array.length-1) + " operaciones:");
                 printArray(array);
                 break;
@@ -119,7 +114,6 @@ public class Utilerias{
                 array = crearArray();
                 System.out.println("Este es el arreglo a ordenar: ");
                 printArray(array);
-                Ordenamientos.insertionSort(array);
                 System.out.println("Este es el arreglo ya ordenado por quickSort (pivote aleatorio) en " + Ordenamientos.QuickSort2(array) + " operaciones:");
                 printArray(array);
                 break;
@@ -127,7 +121,6 @@ public class Utilerias{
                 array = crearArray();
                 System.out.println("Este es el arreglo a ordenar: ");
                 printArray(array);
-                Ordenamientos.insertionSort(array);
                 System.out.println("Este es el arreglo ya ordenado por mergeSort en " + Ordenamientos.sort(array, 0, array.length) + " operaciones:");
                 printArray(array);
                 break;
@@ -135,7 +128,6 @@ public class Utilerias{
                 array = crearArray();
                 System.out.println("Este es el arreglo a ordenar: ");
                 printArray(array);
-                Ordenamientos.insertionSort(array);
                 System.out.println("Este es el arreglo ya ordenado por countingSort en " + Ordenamientos.countingSort(array) + " operaciones:");
                 printArray(array);
                 break;
@@ -143,7 +135,6 @@ public class Utilerias{
                 array = crearArray();
                 System.out.println("Este es el arreglo a ordenar: ");
                 printArray(array);
-                Ordenamientos.insertionSort(array);
                 System.out.println("Este es el arreglo ya ordenado por radixSort en " + Ordenamientos.radixSort(array) + " operaciones:");
                 printArray(array);
                 break;
@@ -151,7 +142,6 @@ public class Utilerias{
                 array = crearArray();
                 System.out.println("Este es el arreglo a ordenar: ");
                 printArray(array);
-                Ordenamientos.insertionSort(array);
                 System.out.println("Este es el arreglo ya ordenado por shellSort en " + Ordenamientos.shellSort(array) + " operaciones:");
                 printArray(array);
                 break;

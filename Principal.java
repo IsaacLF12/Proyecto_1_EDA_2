@@ -1,8 +1,6 @@
-import java.util.Random;
 import java.util.Scanner;
 import java.util.TreeMap;
 import java.util.Arrays;
-import java.util.LinkedHashMap;
 import java.util.Map;
 
 public class Principal{
@@ -12,13 +10,11 @@ public class Principal{
         while(true){
             Utilerias.menu1();
             op = In.nextInt();
-            
             switch(op){
                 case 1:
                     Utilerias.menu2();
                     op2 = In.nextInt();
                     Utilerias.pruebaIndividual(op2);
-                    
                     Utilerias.pause();
                     break;
                 case 2:
