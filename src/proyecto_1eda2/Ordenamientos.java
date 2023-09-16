@@ -1,5 +1,9 @@
+import java.util.Queue;
+import java.util.LinkedList;
+import java.util.Random;
 
 public class Ordenamientos{
+    //---------InseritonSort---------------------
     public static int insertionSort(int array[]){
         int operations = 0;
         int n = array.length;
@@ -18,6 +22,7 @@ public class Ordenamientos{
         }  
         return operations;
     }
+    //---------SelecciontSort---------------------
     public static int selectionSort(int[] arr){  
         int operations = 0;
         int n = arr.length;
@@ -35,7 +40,8 @@ public class Ordenamientos{
             operations = operations+5;
         }  
         return operations;
-    }  
+    } 
+    //---------BubblySort--------------------- 
     public static int bubbleSort(int[] array){
         int operations = 0;
         int z;
@@ -58,6 +64,7 @@ public class Ordenamientos{
         }
         return operations;
     }
+    //---------HeapSort---------------------
     public static int heapSort(int[] arr){
         int operations = 0;
         int n = arr.length;
@@ -95,6 +102,7 @@ public class Ordenamientos{
         operations = operations+6;
         return operations;
     }
+    //---------QuickSort---------------------
     public static int QuickSort(int arr[], int low, int high){
         int[] pi_operations = new int[2];
         pi_operations[0] = 0;
@@ -104,41 +112,113 @@ public class Ordenamientos{
     }
     public static void Quick(int arr[], int low, int high, int pi_operations[]){
         if (low < high){
-            partition(arr, low, high, pi_operations);
-            Quick(arr, low, pi_operations[0]-1, pi_operations);
-            Quick(arr, pi_operations[0]+1, high, pi_operations);
+            pi_operations[0] = choosePivot(arr, low, high, pi_operations);
+            partition(arr, low, high, pi_operations[0], pi_operations);
+            Quick(arr, low, pi_operations[0] - 1, pi_operations);
+            Quick(arr, pi_operations[0] + 1, high, pi_operations);
         }
-        pi_operations[1] = pi_operations[1]+1;
+        pi_operations[1] = pi_operations[1] + 1;
     }
-    public static void partition(int arr[], int low, int high, int pi_operations[]){
-        int pivot = arr[high];
-        pi_operations[0] = (low-1);
-        for (int j=low; j<high; j++){
-            if (arr[j] <= pivot){
-                pi_operations[0]++;
-                Utilerias.swap(arr, pi_operations[0],j);
-                pi_operations[1] = pi_operations[1]+4;
-            }
-            pi_operations[1] = pi_operations[1]+1;
+    public static int choosePivot(int arr[], int low, int high,  int pi_operations[]) {
+        int mid = low + (high - low) / 2;
+        int a = arr[low];
+        int b = arr[mid];
+        int c = arr[high];
+        pi_operations[1]+=4;
+        if ((a <= b && b <= c) || (c <= b && b <= a)) {
+                pi_operations[1]+=4;
+            return mid; // Median is b
+        } else if ((b <= a && a <= c) || (c <= a && a <= b)) {
+                pi_operations[1]+=8;
+            return low; // Median is a
+        } else {
+                pi_operations[1]+=8;
+            return high; // Median is c
         }
-        int temp = arr[pi_operations[0]+1];
-        arr[pi_operations[0]+1] = arr[high];
+    }
+    public static void partition(int arr[], int low, int high, int pivotIndex, int pi_operations[]){
+        int pivot = arr[pivotIndex];
+        pi_operations[0] = low - 1;
+    
+        // Move the pivot to the end
+        int temp = arr[pivotIndex];
+        arr[pivotIndex] = arr[high];
+        arr[high] = temp;
+        pi_operations[1] = pi_operations[1] + 3;
+    
+        for (int j = low; j < high; j++){
+            if (arr[j] < pivot){
+                pi_operations[0]++;
+                Utilerias.swap(arr, pi_operations[0], j);
+                pi_operations[1] = pi_operations[1] + 4;
+            }
+            pi_operations[1]++;
+        }
+        // Move the pivot back to its final position
+        temp = arr[pi_operations[0] + 1];
+        arr[pi_operations[0] + 1] = arr[high];
         arr[high] = temp;
         pi_operations[0]++;
-        pi_operations[1] = pi_operations[1]+7;
+        pi_operations[1] = pi_operations[1] + 4;
     }
-    public static int sort(int arr[], int l, int r){ 
-        int operations = 0;
-        if (l < r){ 
-            int m = (l+r)/2; 
-            operations+=sort(arr, l, m); 
-            operations+=sort(arr , m+1, r); 
-            operations+=merge(arr, l, m, r);
-            operations+=1; 
-        } 
-        operations+=1;
-        return operations;
+    //---------QuickSort Pivote Aleatorio---------------------
+    public static int QuickSort2(int[] array){
+        int[] pointer_operations = new int[2];
+        pointer_operations[0] = 0;
+        pointer_operations[1] = 0;
+        Quick2(array, 0, array.length - 1, pointer_operations);
+        return pointer_operations[1];
     }
+    public static void Quick2(int[] array, int lowIndex, int highIndex, int[] pointer_operations){
+        if (lowIndex >= highIndex) {
+            pointer_operations[1] += 1;
+            return;
+        }
+        int pivotIndex = new Random().nextInt(highIndex - lowIndex) + lowIndex;
+        int pivot = array[pivotIndex];
+        Utilerias.swap(array, pivotIndex, highIndex);
+        pointer_operations[1] += 6;
+
+        partition2(array, lowIndex, highIndex, pivot, pointer_operations);
+        int leftPointer = pointer_operations[0];
+        pointer_operations[1] += 1;
+
+        Quick2(array, lowIndex, leftPointer - 1, pointer_operations);
+        Quick2(array, leftPointer + 1, highIndex, pointer_operations);
+
+    }
+    public static void partition2(int[] array, int lowIndex, int highIndex, int pivot, int[] pointer_operations) {
+        int leftPointer = lowIndex;
+        int rightPointer = highIndex - 1;
+        while (leftPointer < rightPointer) {
+            // Walk from the left until we find a number greater than the pivot, or hit the right pointer.
+            while (array[leftPointer] <= pivot && leftPointer < rightPointer) {
+                leftPointer++;
+                pointer_operations[1] += 1;
+            }
+
+            // Walk from the right until we find a number less than the pivot, or hit the left pointer.
+            while (array[rightPointer] >= pivot && leftPointer < rightPointer) {
+                rightPointer--;
+                pointer_operations[1] += 1;
+            }
+            Utilerias.swap(array, leftPointer, rightPointer);
+            pointer_operations[1] += 7;
+        }
+        // This is different from what the video has, and fixes an issue where the last value could potentially be out of order. 
+        // Thanks to viewer Wilson Barbosa for suggesting the fix!
+        if(array[leftPointer] > array[highIndex]) {
+            Utilerias.swap(array, leftPointer, highIndex);
+            pointer_operations[1] += 3;
+        }
+        else {
+            leftPointer = highIndex;
+            pointer_operations[1] += 1;
+        }
+        pointer_operations[1] += 4;
+        pointer_operations[0] = leftPointer;
+    }
+    //---------MergeSort---------------------
     public static int merge(int arr[], int l, int m, int r){ 
         int operations = 0;
         int n1 = m - l + 1; 
@@ -182,5 +262,93 @@ public class Ordenamientos{
         } 
         operations+=11;
         return operations;
-    }   
+    } 
+    //---------CountingSort---------------------
+    public static int countingSort(int[] arr){
+        int operations = 0;
+        int[] operationsArr = new int[1];
+        operationsArr[0]=0;
+        int countSize = Utilerias.mayorArr(arr, operationsArr)+1;
+        operations+=operationsArr[0];
+        int[] count = new int[countSize];
+        int[] newArr = new int[arr.length];
+        for(int i : arr){
+            count[i]++;
+            operations+=1;
+        }
+        for(int i=1; i<countSize; i++){
+            count[i] = count[i-1] + count[i];
+            operations+=1;
+        }
+        for(int i=arr.length-1; i>=0; i--){
+            newArr[(count[arr[i]]--)-1] = arr[i];
+            operations+=1;
+        }
+        for(int i = 0; i<arr.length; i++){
+            arr[i] = newArr[i];
+            operations+=1;
+        }
+        operations+=7;
+        return operations;
+    }
+    //---------InseritonSort---------------------
+    public static int radixSort(int[] arr){
+        int operations = 0;
+        Queue[] queues = new Queue[10];
+        for(int i = 0; i < 10; i++) 
+            queues[i] = new LinkedList<Integer>();
+        int n=0, j, cola0Size=0;
+        while(cola0Size < arr.length){
+            for(int i : arr){
+                queues[(i/(int)Math.pow(10, n))%10].add(i);
+                operations+=1;
+            }
+            j=0;
+            cola0Size = queues[0].size();
+            for(int i=0; i<10; i++){
+                while(queues[i].isEmpty()!=true){
+                    arr[j++] = (int)queues[i].poll();
+                    operations+=1;
+                }
+                operations+=1;
+            }
+            n++;
+            operations+=5;
+        }
+        operations+=16;
+        return operations;
+    }
+    //---------ShellSort---------------------
+    public static int shellSort(int arr[]){
+        int operations = 0;
+        int n = arr.length;
+        // Start with a big gap, then reduce the gap
+        for (int gap = n/2; gap > 0; gap /= 2){
+            // Do a gapped insertion sort for this gap size.
+            // The first gap elements a[0..gap-1] are already
+            // in gapped order keep adding one more element
+            // until the entire array is gap sorted
+            for (int i = gap; i < n; i += 1){
+                // add a[i] to the elements that have been gap
+                // sorted save a[i] in temp and make a hole at
+                // position i
+                int temp = arr[i];
+                // shift earlier gap-sorted elements up until
+                // the correct location for a[i] is found
+                int j;
+                for (j = i; j >= gap && arr[j - gap] > temp; j -= gap){
+                    arr[j] = arr[j - gap];
+                    operations+=1;
+                }
+  
+                // put temp (the original a[i]) in its correct
+                // location
+                arr[j] = temp;
+                operations+=4;
+            }
+            operations+=1;
+        }
+        operations+=2;
+        return operations;
+    }
 }

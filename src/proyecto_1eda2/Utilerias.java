@@ -10,4 +10,16 @@ public class Utilerias{
         arr[x] = arr[y];  
         arr[y] = temp;
     }
+    public static int mayorArr(int[] arr, int[] operations){
+        int M = arr[0];
+        for(int i : arr){
+            if(M<i){
+                M = i;
+                operations[0]+=1;
+            }
+            operations[0]+=1;
+        }
+        operations[0]+=3;
+        return M;
+    }
 }
