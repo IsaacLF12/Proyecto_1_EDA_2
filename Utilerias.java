@@ -36,6 +36,7 @@ public class Utilerias{
         clearScreen();
         System.out.println("--------------------- PROYECTO 1 EDA 2 ---------------------");
         System.out.println("Elige la opcion que desees:\n\t1. Probar un algoritmo de forma individual\n\t2. Comparar todos los algoritmos");
+        System.out.println("Ingresa cualquier otro numero para Salir");
     }
     public static void menu2(){
         String[] nombresAlgoritmos = {"insertionSort", "selectionSort", "bubbleSort", "heapSort", "quickSort (p.m.o.t)", "quickSort (p.r.)",
@@ -70,5 +71,93 @@ public class Utilerias{
                 break;
         }
         return array;
+    }
+    public static void pruebaIndividual(int op2){
+        int[] array;
+        switch(op2){
+            case 1:
+                array = crearArray();
+                System.out.println("Este es el arreglo a ordenar: ");
+                printArray(array);
+                Ordenamientos.insertionSort(array);
+                System.out.println("Este es el arreglo ya ordenado por insertionSort en " + Ordenamientos.insertionSort(array) + " operaciones:");
+                printArray(array);
+                break;
+            case 2:
+                array = crearArray();
+                System.out.println("Este es el arreglo a ordenar: ");
+                printArray(array);
+                Ordenamientos.insertionSort(array);
+                System.out.println("Este es el arreglo ya ordenado por selectionSort en " + Ordenamientos.selectionSort(array) + " operaciones:");
+                printArray(array);
+                break;
+            case 3:
+                array = crearArray();
+                System.out.println("Este es el arreglo a ordenar: ");
+                printArray(array);
+                Ordenamientos.insertionSort(array);
+                System.out.println("Este es el arreglo ya ordenado por bubbleSort en " + Ordenamientos.bubbleSort(array) + " operaciones:");
+                printArray(array);
+                break;
+            case 4:
+                array = crearArray();
+                System.out.println("Este es el arreglo a ordenar: ");
+                printArray(array);
+                Ordenamientos.insertionSort(array);
+                System.out.println("Este es el arreglo ya ordenado por heapSort en " + Ordenamientos.heapSort(array) + " operaciones:");
+                printArray(array);
+                break;
+            case 5:
+                array = crearArray();
+                System.out.println("Este es el arreglo a ordenar: ");
+                printArray(array);
+                Ordenamientos.insertionSort(array);
+                System.out.println("Este es el arreglo ya ordenado por quickSort (pivot method of three) en " + Ordenamientos.QuickSort(array, 0, array.length-1) + " operaciones:");
+                printArray(array);
+                break;
+            case 6:
+                array = crearArray();
+                System.out.println("Este es el arreglo a ordenar: ");
+                printArray(array);
+                Ordenamientos.insertionSort(array);
+                System.out.println("Este es el arreglo ya ordenado por quickSort (pivote aleatorio) en " + Ordenamientos.QuickSort2(array) + " operaciones:");
+                printArray(array);
+                break;
+            case 7:
+                array = crearArray();
+                System.out.println("Este es el arreglo a ordenar: ");
+                printArray(array);
+                Ordenamientos.insertionSort(array);
+                System.out.println("Este es el arreglo ya ordenado por mergeSort en " + Ordenamientos.sort(array, 0, array.length) + " operaciones:");
+                printArray(array);
+                break;
+            case 8:
+                array = crearArray();
+                System.out.println("Este es el arreglo a ordenar: ");
+                printArray(array);
+                Ordenamientos.insertionSort(array);
+                System.out.println("Este es el arreglo ya ordenado por countingSort en " + Ordenamientos.countingSort(array) + " operaciones:");
+                printArray(array);
+                break;
+            case 9:
+                array = crearArray();
+                System.out.println("Este es el arreglo a ordenar: ");
+                printArray(array);
+                Ordenamientos.insertionSort(array);
+                System.out.println("Este es el arreglo ya ordenado por radixSort en " + Ordenamientos.radixSort(array) + " operaciones:");
+                printArray(array);
+                break;
+            case 10:
+                array = crearArray();
+                System.out.println("Este es el arreglo a ordenar: ");
+                printArray(array);
+                Ordenamientos.insertionSort(array);
+                System.out.println("Este es el arreglo ya ordenado por shellSort en " + Ordenamientos.shellSort(array) + " operaciones:");
+                printArray(array);
+                break;
+            default:
+                System.out.println("Opcion incorrecta");
+                break;
+        }
     }
 }
