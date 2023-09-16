@@ -41,7 +41,7 @@ public class Ordenamientos{
         }  
         return operations;
     } 
-    //---------BubblySort--------------------- 
+    //---------BubbleSort--------------------- 
     public static int bubbleSort(int[] array){
         int operations = 0;
         int z;
@@ -219,6 +219,19 @@ public class Ordenamientos{
         pointer_operations[0] = leftPointer;
     }
     //---------MergeSort---------------------
+    public static int sort(int arr[], int l, int r){
+        int operations = 0; 
+        if (l < r) { 
+            int m = (l+r)/2; 
+  
+            operations+=sort(arr, l, m); 
+            operations+=sort(arr , m+1, r); 
+            operations+=merge(arr, l, m, r); 
+            operations+=1;
+        } 
+        operations+=1;
+        return operations;
+    }
     public static int merge(int arr[], int l, int m, int r){ 
         int operations = 0;
         int n1 = m - l + 1; 
