@@ -1,3 +1,8 @@
+/******************************
+ * @authors  Daniel H., Isaac L., Sebastian J.
+ * @date    16/09/2023
+ * @purpose   En este archivo se encuentran funciones de utileria asi como modulos del menu para subdividir el programa principal
+******************************/
 import java.util.Random;
 import java.util.Scanner;
 

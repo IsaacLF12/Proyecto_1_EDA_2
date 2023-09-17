@@ -1,3 +1,8 @@
+/******************************
+ * @authors  Daniel H., Isaac L., Sebastian J.
+ * @date    16/09/2023
+ * @purpose   Este archivo contiene el menu principal del proyecto
+******************************/
 import java.util.Scanner;
 import java.util.TreeMap;
 import java.util.Arrays;
