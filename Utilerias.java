@@ -163,7 +163,7 @@ public class Utilerias {
                 array = crearArray();
                 System.out.println("Este es el arreglo a ordenar: ");
                 printArray(array);
-                System.out.println("Este es el arreglo ya ordenado por mergeSort en " + Ordenamientos.sort(array, 0, array.length) + " operaciones:");
+                System.out.println("Este es el arreglo ya ordenado por mergeSort en " + Ordenamientos.sort(array, 0, array.length-1) + " operaciones:");
                 printArray(array);
                 break;
             case 8:
